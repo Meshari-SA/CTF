@@ -1,5 +1,5 @@
 
-![frida-re2](https://github.com/Meshari-SA/CTF/assets/45703970/4d62112e-a861-4b2e-90ee-03239dd3bb43)
+![frida-re2](./image/frida.png)
 
 
 
@@ -13,32 +13,33 @@ apktool d file.apk
 open the ```/clickme/resources/AndroidManifest.xml``` to find the entry point of app 
 
 
-![image](https://github.com/Meshari-SA/CTF/assets/45703970/d5943d0f-221e-4434-b916-bf002112f135)
+![image](./image/manifest.png)
 
 Let's inspect the source code of ```/clickme/sources/com/example/clickme/MainActivity.java```
 
-![image](https://github.com/Meshari-SA/CTF/assets/45703970/b0ca3915-97ec-472b-b9a2-b143280f61ad)
+![image](./image/MainActivity.png)
 
 
 We found a native function called getFlag. The question is, what is a native function?
 
 
-![image](https://github.com/Meshari-SA/CTF/assets/45703970/e80e628f-c7cb-4e1b-80df-ba2daad6bbd1)
+![image](./image/NDK.png)
 
-![image](https://github.com/Meshari-SA/CTF/assets/45703970/6183c0fc-d7c7-43f2-90ef-97be4405f4b0)
+![image](./image/load.png)
 
 Now we know that the  ```getFlag``` function come from Library called ```clickme``` 
 
-![image](https://github.com/Meshari-SA/CTF/assets/45703970/4b7b1a73-ab66-42cb-bdad-bd77e9e0be9a)
+![image](./image/load_clickme.png)
 
 We can find the library at ```/clickme/resources/lib/x86/``` named  ```libclickme.so```,so we know is C/C++ we can open with IDA or Ghidra to look inside it.
 Just go to the exports and search for ```getFlag```
 
-![image](https://github.com/Meshari-SA/CTF/assets/45703970/67ea9300-0f7d-49b0-b52d-cab3e9659d3e)
+![image](./image/IDA_NF.png)
+
 
 Press Alt+3 to display as pseudocode.
 
-![image](https://github.com/Meshari-SA/CTF/assets/45703970/0ff62690-ae17-4852-8830-3905c6f7759e)
+![image](./image/Native_function.png)
 
 There's a lot of code here, so it will take some time. I just want to show you where we can find the getFlag function.
 
@@ -64,7 +65,7 @@ Java.perform(function(){
 
 after clicking the button, we obtain the flag.
 
-![image](https://github.com/Meshari-SA/CTF/assets/45703970/9157815a-6c53-42df-884a-20514f2fb7e0)
+![image](./image/Frida_.png)
 
 
 
