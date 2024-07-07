@@ -45,7 +45,7 @@ There's a lot of code here, so it will take some time. I just want to show you w
 
 Let's go to hooking the function to get the value that ```getFlag``` provides to us.
 
-I will be using Frida to hook functions and Genymotion as an Android emulator.
+I will be using [Frida](https://frida.re/) to hook functions and [Genymotion](https://www.genymotion.com/) as an Android emulator.
 
 We will create a JavaScript API using [this documentation](https://frida.re/docs/javascript-api/#java) from Frida to hook into the functions. 
 
